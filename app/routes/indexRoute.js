@@ -1,11 +1,11 @@
-module.exports = function(app, passport) {
-  app.get('/', isLoggedIn, function(req, res) {
-    res.render('home');
-  });
+const IndexController = require('../controllers/indexController')
 
-  app.get('/login', function(req, res) {
-    res.render('login', { message: req.flash('loginMessage') });
-  });
+module.exports = function(app, passport) {
+  const indexController = new IndexController(app, passport);
+
+  app.get('/', indexController.getHome.bind(indexController));
+
+  app.get('/login', indexController.getLogin.bind(indexController));
 
   app.post('/login', passport.authenticate('local-login', {
     successRedirect : '/profile',
@@ -13,9 +13,7 @@ module.exports = function(app, passport) {
     failureFlash : true
   }));
 
-  app.get('/signup', function(req, res) {
-    res.render('signup', { message: req.flash('signupMessage') });
-  });
+  app.get('/signup', indexController.getSignup.bind(indexController));
 
   app.post('/signup', passport.authenticate('local-signup', {
     successRedirect : '/profile',
@@ -23,20 +21,8 @@ module.exports = function(app, passport) {
     failureFlash : true
   }));
 
-  app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile', {
-      user : req.user
-    });
-  });
+  app.get('/profile', indexController.getProfile.bind(indexController));
 
-  app.get('/logout', function(req, res) {
-    req.logout();
-    res.redirect('/login');
-  });
+  app.get('/logout', indexController.getLogout.bind(indexController));
 };
 
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated())
-    return next();
-  res.redirect('/login');
-}
