@@ -1,16 +1,16 @@
 {% extends "base.twig" %}
 
-{% block title %}Profile{% endblock %}
+{% block title %}Regisration{% endblock %}
 
 {% block head %}
   {{ parent() }}
 {% endblock %}
 
 {% block content %}
-  <h2>My Profile</h2>
+  <h2>Welcome to the registration page</h2>
 
 <div class="flex-center">
-  <form method="post" action="/profile">
+  <form method="post" action="/signup">
     <div>
       <label for="lastname">Lastname:</label><br>
       <input type="text" name="lastname" placeholder="RAMBO" required>
@@ -27,17 +27,17 @@
     </div>
 
     <div>
-      <label for="mail">Email:</label><br>
-      <input type="mail" name="mail" placeholder="jean.dupont@tld.fr" disabled>
+      <label for="email">Email:</label><br>
+      <input type="mail" name="email" placeholder="jean.dupont@tld.fr" required>
     </div>
 
     <div>
-      <label for="password">New password:</label><br>
+      <label for="password">Password:</label><br>
       <input type="password" name="password" required>
     </div>
 
     <div>
-      <label for="password_confirm">Please confirm your new password:</label><br>
+      <label for="password_confirm">Please confirm your password:</label><br>
       <input type="password" name="password_confirm" required>
     </div>
 
@@ -66,7 +66,7 @@
     </div>
 
     <div>
-      <label for="btn_submit" class="btn_submit">Save your modifications</label><br>
+      <label for="btn_submit" class="btn_submit">Sign in</label><br>
       <input type="submit" name="btn_submit" class="none" id="btn_submit">
     </div> 
 
