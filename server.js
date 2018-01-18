@@ -29,7 +29,9 @@ app.use(flash());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-require('./app/routes.js')(app, passport);
+// Routing
+require('./app/routes/indexRoute.js')(app, passport);
+// \Routing
 
 app.listen(port);
 console.log('Server listening on port ' + port);
