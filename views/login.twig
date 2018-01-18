@@ -1,0 +1,38 @@
+{% extends "base.twig" %}
+
+{% block title %}Login{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+{% endblock %}
+
+{% block content %}
+  <h2>Welcome to the login page</h2>
+
+  <div class="flex-center">
+    <form method="post" action="/login">
+        <div>
+            <label>Email:</label><br>
+            <input type="mail" name="mail" required>
+        </div>
+        
+        <div>
+            <label>Password:</label><br>
+            <input type="password" name="password" required>
+        </div>
+
+        <div>
+            <label for="btn_submit" class="btn_submit">Log in</label><br>
+            <input type="submit" name="btn_submit" class="none" id="btn_submit">
+        </div> 
+    </form>
+
+    <div id="provider_login">
+        Log in with <a href="" class="link"> <img  class="logo" src="/images/google.png" alt="logo google">Google</a> 
+        or <a href="" class="link"> <img class="logo" src="/images/facebook.png" alt="logo google">Facebook</a>
+    </div><br>
+
+    <div>Doesn't have an account yet? Click <a href="/register">here</a> to create an account</div>
+  </div>
+  
+{% endblock %}
