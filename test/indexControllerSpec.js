@@ -1,5 +1,5 @@
 const expect = require('expect');
-const IndexController = require('../../app/controllers/indexController');
+const IndexController = require('../app/controllers/indexController');
 
 describe("indexController", () => {
   describe("#login", () => {
@@ -63,7 +63,29 @@ describe("indexController", () => {
 
 describe('#register', () => {
   it('Should create a user', () => {
-    let data = {
+    const passport = {
+      authenticate() {
+        req.session = {}
+        req.session.user_tmp = {
+          email: 'test@test.test',
+          password: 'testPassword'
+        }
+        res.render('index');
+      }
+    }
+
+    const req = {
+      body: {
+        lastname: 'RAMBO',
+        firstname: 'John',
+        email: 'john.rambo@test.tld',
+        pseudo: 'jrambo',
+        birthdate: new Date(1946-07-06)
+      }
+    }
+    const res = null
+    
+    const data = {
       lastname: 'RAMBO',
       firstname: 'John',
       email: 'john.rambo@test.tld',
@@ -71,7 +93,10 @@ describe('#register', () => {
       birthdate: new Date(1946-07-06)
     }
 
+    const indexController = new IndexController(passport);
+    const newUser = indexController.register(req, res);
 
+    expect(newUser).toEqual(data);
 
   })
 });
