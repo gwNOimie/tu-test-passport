@@ -10,6 +10,10 @@
   <h2>Welcome to the registration page</h2>
 
 <div class="flex-center">
+  {% if message %}
+      {{ message }}
+  {% endif %}
+
   <form method="post" action="/signup">
     <div>
       <label for="lastname">Lastname:</label><br>
