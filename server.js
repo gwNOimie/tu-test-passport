@@ -8,22 +8,26 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const path = require('path');
+
 const mongodb = require('./config/mongodb.js');
 
 mongoose.connect(mongodb.url);
 
 require('./config/passport')(passport);
 
-	app.use(logger('dev'));
-	app.use(cookieParser());
-	app.use(bodyParser());
+app.use(logger('dev'));
+app.use(cookieParser());
+app.use(bodyParser());
 
-	app.set('view engine', 'twig');
+app.set('view engine', 'twig');
 
-	app.use(session({ secret: 'SiTuYCroisTresFortEtQueTonCoeurEstPurIlPeutArriverDesChosesMerveilleuses' }));
-	app.use(passport.initialize());
-	app.use(passport.session());
-	app.use(flash());
+app.use(session({ secret: 'SiTuYCroisTresFortEtQueTonCoeurEstPurIlPeutArriverDesChosesMerveilleuses' }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 require('./app/routes.js')(app, passport);
 
