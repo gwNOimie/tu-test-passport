@@ -1,18 +1,28 @@
-# Complete Guide to Node Authentication
+# Prerequisites
 
-Code for the entire scotch.io tutorial series: Complete Guide to Node Authentication
+Make sur Node.js and Git are installed on your computer; if you're using Windows, make sur you have environment variables to use them.
 
-We will be using Passport to authenticate users locally, with Facebook, Twitter, and Google.
+# Get the project
 
-## Instructions
+In your terminal, move to your chosen directory and clone the repository: `git clone https://github.com/gwNOimie/tu-test-passport`
 
-If you would like to download the code and try it for yourself:
+# Install the project
 
-1. Clone the repo: `git clone git@github.com:scotch-io/node-authentication-guide`
-2. Install packages: `npm install`
-3. Change out the database configuration in config/mongodb.js
-4. Launch: `node server.js`
-5. Visit in your browser at: `http://localhost:8080`
+Move into your project and install packages: `npm install`
 
+# Launch application
 
+Launch: `npm start` or `nodemon app/server.js`
+Open a browser (like Google Chrome or Firefox) and go to `http://localhost:3000`
 
+Welcome to the application !
+
+# Run tests
+
+To run tests, open a terminal and launch the command `npm run test`
+
+// WARNING \\
+If you're using Windows, the previous command will throw an error `'.' n’est pas reconnu en tant que commande interne`
+
+Launch the command `node <path_to_the_module_mocha>` instead.
+ex: `node C:\Users\Gaëtan\Documents\IMIE\node_js\tu-test-passport\node_modules\mocha\bin\mocha`
