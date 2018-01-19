@@ -5,13 +5,13 @@ module.exports = {
   'Profile page show displays user informations ': function (client) {
     client
       .url(helper.routes.profile)
-      .getValue(helper.querySelectors.lastName).assert.equal(helper.user.lastName)
-      .getValue(helper.querySelectors.firstName).assert.equal(helper.user.firstName)
-      .getValue(helper.querySelectors.nickName).assert.equal(helper.user.nickName)
-      .getValue(helper.querySelectors.email).assert.equal(helper.user.email)
-      .getValue(helper.querySelectors.password).assert.equal(helper.user.password)
-      .getValue(helper.querySelectors.password_confirm).assert.equal(helper.user.password_confirm)
-      .getValue(helper.querySelectors.birthdate).assert.equal(helper.user.birthdate)
+      .getValue(helper.querySelectors.lastName).assert.equal(helper.user.local.lastName)
+      .getValue(helper.querySelectors.firstName).assert.equal(helper.user.local.firstName)
+      .getValue(helper.querySelectors.nickName).assert.equal(helper.user.local.nickName)
+      .getValue(helper.querySelectors.email).assert.equal(helper.user.local.email)
+      .getValue(helper.querySelectors.password).assert.equal(helper.user.local.password)
+      .getValue(helper.querySelectors.password_confirm).assert.equal(helper.user.local.password_confirm)
+      .getValue(helper.querySelectors.birthdate).assert.equal(helper.user.local.birthdate)
       .edn();
   },
 
