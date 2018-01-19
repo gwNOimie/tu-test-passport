@@ -5,34 +5,34 @@
 
   <testsuite name="loginSpec"
     errors="0" failures="0" hostname="" id="" package="loginSpec" skipped="0"
-    tests="6" time="14.46" timestamp="Fri, 19 Jan 2018 10:10:52 GMT">
+    tests="6" time="10.72" timestamp="Fri, 19 Jan 2018 10:56:30 GMT">
   
-    <testcase name="Login test if username and password are incorrect" classname="loginSpec" time="2.924" assertions="1">
+    <testcase name="Login test if username and password are incorrect" classname="loginSpec" time="3.961" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if username is incorrect" classname="loginSpec" time="1.487" assertions="1">
+    <testcase name="Login test if username is incorrect" classname="loginSpec" time="1.287" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if password is incorrect" classname="loginSpec" time="1.484" assertions="1">
+    <testcase name="Login test if password is incorrect" classname="loginSpec" time="1.335" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if username and password are empty" classname="loginSpec" time="1.624" assertions="1">
+    <testcase name="Login test if username and password are empty" classname="loginSpec" time="1.278" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if username is empty" classname="loginSpec" time="1.829" assertions="1">
+    <testcase name="Login test if username is empty" classname="loginSpec" time="1.509" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if password is empty" classname="loginSpec" time="5.114" assertions="1">
+    <testcase name="Login test if password is empty" classname="loginSpec" time="1.355" assertions="1">
 
     
     </testcase>
@@ -42,8 +42,8 @@
     <system-err>
         Error while running [Profile Spec / Profile page show displays user informations ]:
 
-  TypeError: client.url(...).assert is not a function
-    at Object.Profile page show displays user informations  (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/test/functional/profileSpec.js:7:8)
+  TypeError: Cannot read property &#39;getValue&#39; of undefined
+    at Object.Profile page show displays user informations  (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/test/functional/profileSpec.js:8:7)
     at Module.call (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/node_modules/nightwatch/lib/runner/module.js:62:34)
     at /Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/node_modules/nightwatch/lib/runner/testcase.js:70:29
     at _fulfilled (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/node_modules/q/q.js:834:54)

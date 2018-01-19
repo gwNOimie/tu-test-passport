@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="1"
-            failures="0"
-            tests="1">
+            failures="1"
+            tests="2">
 
   <testsuite name="profileSpec"
-    errors="1" failures="0" hostname="" id="" package="profileSpec" skipped="0"
-    tests="1" time="0.003000" timestamp="Fri, 19 Jan 2018 10:11:06 GMT">
+    errors="1" failures="1" hostname="" id="" package="profileSpec" skipped="1"
+    tests="2" time="0.005000" timestamp="Fri, 19 Jan 2018 10:56:41 GMT">
   
-    <testcase name="Profile page show displays user informations " classname="profileSpec" time="0.003000" assertions="0">
+    <testcase name="Profile page show displays user informations " classname="profileSpec" time="0.005000" assertions="1">  <failure message="Failed [equal]: (&#39;RAMBO&#39; == undefined)">    at Object.Profile page show displays user informations  (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/test/functional/profileSpec.js:7:50)</failure>
+
+    
     </testcase>
   
 
@@ -15,8 +17,8 @@
     <system-err>
         Error while running [Profile Spec / Profile page show displays user informations ]:
 
-  TypeError: client.url(...).assert is not a function
-    at Object.Profile page show displays user informations  (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/test/functional/profileSpec.js:7:8)
+  TypeError: Cannot read property &#39;getValue&#39; of undefined
+    at Object.Profile page show displays user informations  (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/test/functional/profileSpec.js:8:7)
     at Module.call (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/node_modules/nightwatch/lib/runner/module.js:62:34)
     at /Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/node_modules/nightwatch/lib/runner/testcase.js:70:29
     at _fulfilled (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/node_modules/q/q.js:834:54)
@@ -29,6 +31,13 @@
     </system-err>
   
 
+  
+    
+    <testcase
+      name="Profile update " classname="profileSpec">
+      <skipped />
+    </testcase>
+    
   
   </testsuite>
 </testsuites>
