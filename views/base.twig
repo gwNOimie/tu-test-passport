@@ -1,32 +1,48 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="fr">
-<head>
-  {% block head %}
-    {# <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> #}
-    <link rel="stylesheet" href="/stylesheets/global.css" />
-    <title>{% block title %}{% endblock %}</title>
-  {% endblock %}
-</head>
-<body>
-  <header class="flex-row">
-    <div><img src="https://imie-ecole-informatique.fr/sites/default/files/logo-imie_3.png" alt="logo appli"></div>
-    <div><h1>TP IMIE</h1></div>
-    <nav>
-      <ul>
-        <li class="inline btn_nav"><a href="/login" class="link">Log in</a></li>
-        <li class="inline btn_nav"><a href="/signup" class="link">Sign up</a></li>
-        <li class="inline btn_nav"><a href="/profile" class="link">Profile</a></li>
-        <li class="inline btn_nav"><a href="/logout" class="link">Log out</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <div id="content" class="main">{% block content %}{% endblock %}</div>
-  
-  <div id="footer">
-    {% block footer %}
-      &copy; Copyright 2018 by IMIE.
-    {% endblock %}
-  </div>
-</body>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            {# <link rel="stylesheet" href="/stylesheets/global.css"/> #}
+            <title>
+                {% block title %}{% endblock %}
+            </title>
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img src="https://imie-ecole-informatique.fr/sites/default/files/logo-imie_3.png" alt="logo appli" style="display: inline-block">
+                    <a class="navbar-brand" href="#" style="display: inline-block">TP IMIE</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li>
+                        <a href="/signup">Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="/profile">Profile</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div id="content" class="col-md-8" style="margin: 50px auto">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <div id="footer" class="col-md-8">
+            Copyright 2018 by IMIE.
+        </div>
+    </body>
 </html>

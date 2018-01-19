@@ -11,32 +11,33 @@
 
   <div class="flex-center">
     {% if message %}
-        {{ message }}
+        <div class="alert alert-danger">
+            <strong>Error !</strong> {{ message }}
+          </div>
     {% endif %}
 
     <form method="post" action="/login">
-        <div>
+        <div class="form-group">
             <label>Email:</label><br>
-            <input type="mail" name="email" required>
+            <input class="form-control" type="mail" name="email" required>
         </div>
         
-        <div>
+        <div class="form-group">
             <label>Password:</label><br>
-            <input type="password" name="password" required>
+            <input class="form-control" type="password" name="password" required>
         </div>
 
         <div>
-            <label for="btn_submit" class="btn_submit">Log in</label><br>
-            <input type="submit" name="btn_submit" class="none" id="btn_submit">
+            <input class="btn btn-primary" type="submit" name="btn_submit" class="none" id="btn_submit">
         </div> 
     </form>
 
-    <div id="provider_login">
+    {# <div id="provider_login">
         Log in with <a href="" class="link"> <img  class="logo" src="/images/google.png" alt="logo google">Google</a> 
         or <a href="" class="link"> <img class="logo" src="/images/facebook.png" alt="logo google">Facebook</a>
     </div><br>
 
-    <div>Doesn't have an account yet? Click <a href="/signup">here</a> to create an account</div>
+    <div>Doesn't have an account yet? Click <a href="/signup">here</a> to create an account</div> #}
   </div>
   
 {% endblock %}
