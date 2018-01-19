@@ -13,7 +13,7 @@
     "test:coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --recursive -R spec",
     "test-win:coverage": "node node_modules\\.bin\\istanbul cover ./node_modules/.bin/_mocha -- --recursive -R spec",
     "nw": "./node_modules/.bin/nightwatch --config nightwatch.conf.js",
-    "nw-win": "node node_modules\\.bin\\nightwatch --config nightwatch.conf.js"
+    "nw-win": "node_modules\\.bin\\nightwatch --config nightwatch.conf.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

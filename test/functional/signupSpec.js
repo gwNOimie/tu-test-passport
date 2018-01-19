@@ -128,20 +128,5 @@ module.exports = {
     .click(helper.querySelectors.submitButton)
     .assert.urlEquals(helper.routes.signup)
     .end();
-  },
-
-  ['' + testLogID + 'email with wrong format']: (client) => {
-    client
-      .url(helper.routes.signup)
-      .setValue(helper.querySelectors.lastName, helper.user.lastName)
-      .setValue(helper.querySelectors.firstName, helper.user.firstName)
-      .setValue(helper.querySelectors.nickName, helper.user.nickName)
-      .setValue(helper.querySelectors.email, 'SiTuYCroisTresFortEtQueTonCoeurEstPurIlPeutArriverDesChosesMerveilleuses')
-      .setValue(helper.querySelectors.password, helper.user.password)
-      .setValue(helper.querySelectors.password_confirm, helper.user.password)
-      .setValue(helper.querySelectors.birthdate, helper.user.birthdate)
-      .click(helper.querySelectors.submitButton)
-      .assert.urlEquals(helper.routes.signup)
-      .end()
   }
 }
