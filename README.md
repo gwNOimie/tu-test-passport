@@ -67,6 +67,7 @@ npm run test:coverage       // linux & mac
 
 nmp run test-win:coverage   // windows
 ```
+Generated coverage will be displayed launching `coverage/lcov-report/index.html` from your project path threw a navigator.
 
 ### Run functional tests
 
