@@ -27,6 +27,10 @@ Move into the project folder and install packages:
 npm install
 ```
 
+### Set mongoDB configuration
+
+Edit the file `config/mongodb.js` to correspond to your mongoDB configuration.
+
 ## Usage
 
 ### Launch application
