@@ -1,17 +1,17 @@
 const config = require("../../nightwatch.conf");
-const helper = require('./test-helper')
+const helper = require('./testHelper')
 
 module.exports = {
   'Profile page show displays user informations ': function (client) {
     client
-      .url('http://localhost:3000/profile')
-      .assert('input[name="lastname"]', 'RAMBO')
-      .assert('input[name="firstname"]', 'John')
-      .assert('input[name="nickname"]', 'jrambo')
-      .assert('input[name="email"]', 'john.rambo@rocky.tld')
-      .assert('input[name="password"]', 'p@ssword')
-      .assert('input[name="password_confirm"]', 'p@ssword')
-      .assert('input[name="birthdate"]', '06/07/1946')
+      .url(helper.routes.profile)
+      .assert(helper.querySelectors.lastName, helper.user.lastName)
+      .assert(helper.querySelectors.firstName, helper.user.firstName)
+      .assert(helper.querySelectors.nickName, helper.user.nickName)
+      .assert(helper.querySelectors.email, helper.user.email)
+      .assert(helper.querySelectors.password, helper.user.password)
+      .assert(helper.querySelectors.password_confirm, helper.user.password)
+      .assert(helper.querySelectors.birthdate, helper.user.birthdate)
       .end();
   },
 };
