@@ -2,4 +2,5 @@ node_modules/*
 .idea/*
 coverage/*
 tests_output/*
+tests_output/*
 selenium-debug.log
