@@ -13,6 +13,9 @@ module.exports = {
       .setValue(helper.querySelectors.password, helper.user.password)
       .setValue(helper.querySelectors.password_confirm, helper.user.password)
       .setValue(helper.querySelectors.birthdate, helper.user.birthdate)
+      .setValue(helper.querySelectors.gender, helper.user.gender)
+      .setValue(helper.querySelectors.presentation, helper.user.presentation)
+      .setValue(helper.querySelectors.picture, helper.user.picture)
       .click(helper.querySelectors.submitButton)
       .assert.urlEquals(helper.routes.signup)
       .end();
@@ -28,6 +31,9 @@ module.exports = {
     .setValue(helper.querySelectors.password, helper.user.password)
     .setValue(helper.querySelectors.password_confirm, helper.user.password)
     .setValue(helper.querySelectors.birthdate, helper.user.birthdate)
+    .setValue(helper.querySelectors.gender, helper.user.gender)
+    .setValue(helper.querySelectors.presentation, helper.user.presentation)
+    .setValue(helper.querySelectors.picture, helper.user.picture)
     .click(helper.querySelectors.submitButton)
     .assert.urlEquals(helper.routes.signup)
     .end();
@@ -43,6 +49,9 @@ module.exports = {
     .setValue(helper.querySelectors.password, helper.user.password)
     .setValue(helper.querySelectors.password_confirm, helper.user.password)
     .setValue(helper.querySelectors.birthdate, helper.user.birthdate)
+    .setValue(helper.querySelectors.gender, helper.user.gender)
+    .setValue(helper.querySelectors.presentation, helper.user.presentation)
+    .setValue(helper.querySelectors.picture, helper.user.picture)
     .click(helper.querySelectors.submitButton)
     .assert.urlEquals(helper.routes.signup)
     .end();
@@ -58,6 +67,9 @@ module.exports = {
     .setValue(helper.querySelectors.password, helper.user.password)
     .setValue(helper.querySelectors.password_confirm, helper.user.password)
     .setValue(helper.querySelectors.birthdate, helper.user.birthdate)
+    .setValue(helper.querySelectors.gender, helper.user.gender)
+    .setValue(helper.querySelectors.presentation, helper.user.presentation)
+    .setValue(helper.querySelectors.picture, helper.user.picture)
     .click(helper.querySelectors.submitButton)
     .assert.urlEquals(helper.routes.signup)
     .end();
@@ -73,6 +85,9 @@ module.exports = {
     .setValue(helper.querySelectors.password, '')
     .setValue(helper.querySelectors.password_confirm, helper.user.password)
     .setValue(helper.querySelectors.birthdate, helper.user.birthdate)
+    .setValue(helper.querySelectors.gender, helper.user.gender)
+    .setValue(helper.querySelectors.presentation, helper.user.presentation)
+    .setValue(helper.querySelectors.picture, helper.user.picture)
     .click(helper.querySelectors.submitButton)
     .assert.urlEquals(helper.routes.signup)
     .end();
@@ -88,12 +103,15 @@ module.exports = {
     .setValue(helper.querySelectors.password, helper.user.password)
     .setValue(helper.querySelectors.password_confirm, '')
     .setValue(helper.querySelectors.birthdate, helper.user.birthdate)
+    .setValue(helper.querySelectors.gender, helper.user.gender)
+    .setValue(helper.querySelectors.presentation, helper.user.presentation)
+    .setValue(helper.querySelectors.picture, helper.user.picture)
     .click(helper.querySelectors.submitButton)
     .assert.urlEquals(helper.routes.signup)
     .end();
   },
 
-  'Signup test if confirm birthdate is empty': function (client) {
+  'Signup test if birthdate is empty': function (client) {
     client
     .url(helper.routes.signup)
     .setValue(helper.querySelectors.lastName, helper.user.lastName)
@@ -103,6 +121,9 @@ module.exports = {
     .setValue(helper.querySelectors.password, helper.user.password)
     .setValue(helper.querySelectors.password_confirm, helper.user.password)
     .setValue(helper.querySelectors.birthdate, '')
+    .setValue(helper.querySelectors.gender, helper.user.gender)
+    .setValue(helper.querySelectors.presentation, helper.user.presentation)
+    .setValue(helper.querySelectors.picture, helper.user.picture)
     .click(helper.querySelectors.submitButton)
     .assert.urlEquals(helper.routes.signup)
     .end();
