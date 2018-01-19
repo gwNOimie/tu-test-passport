@@ -1,51 +1,38 @@
 class IndexController {
-  constructor(passport) {
+  constructor(app, passport) {
+    this.app = app;
     this.passport = passport;
   }
 
-  index(req, res) {
-    res.render('home');
+  isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+      next(req, res);
+    res.redirect('/login');
   }
 
-  loginPage(req, res) {
-    console.log('loginPage')
-    res.render('login'/*, { message: req.flash('error') || null }*/)
+  getHome(req, res) {
+    this.isLoggedIn(req, res, (req, res) => {
+      res.render('home');
+    })
   }
 
-  loginAction(req, res) {
-    console.log(req.body)
-    console.log('loginAction')
-    console.log(this.passport)
-    // this.passport.authenticate('local', {
-    //   successRedirect: '/',
-    //   failureRedirect: '/login',
-    //   failureFlash: true
-    // })
+  getLogin(req, res) {
+    res.render('login', { message: req.flash('loginMessage') });
   }
 
-  auth(req, res) {
-    return null;
+  getSignup(req, res) {
+    res.render('signup', { message: req.flash('signupMessage') });
   }
 
-  registerPage(req, res) {
-    res.render('register')
+  getProfile(req, res) {
+    this.isLoggedIn(req, res, (req, res) => {
+      res.render('profile', { user: req.user });
+    })
   }
 
-  register(req, res) {
-    console.log(req.body)
-    const newUser = {
-      lastname: req.body.lastname,
-      firstname: req.body.firstname,
-      email: req.body.email,
-      pseudo: req.body.pseudo,
-      birthdate: req.body.birthdate
-    }
-    return newUser;
-  }
-
-  logout(req, res) {
-    return null;
+  getLogout(req, res) {
+    req.logout();
+    res.redirect('/login');
   }
 }
-
 module.exports = IndexController;

@@ -1,13 +1,15 @@
 {% extends "base.twig" %}
 
-{% block title %}Profile{% endblock %}
+{% block title %}
+{{title}}
+{% endblock %}
 
 {% block head %}
   {{ parent() }}
 {% endblock %}
 
 {% block content %}
-  <h2>My Profile</h2>
+  <h2 name="page_title">My Profile</h2>
 
 <div class="flex-center">
   <form method="post" action="/profile">
