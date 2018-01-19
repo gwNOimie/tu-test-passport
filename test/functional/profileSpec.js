@@ -1,4 +1,5 @@
-var config = require("../../nightwatch.conf");
+const config = require("../../nightwatch.conf");
+const helper = require('./test-helper')
 
 module.exports = {
   'Profile page show displays user informations ': function (client) {

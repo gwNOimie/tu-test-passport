@@ -43,8 +43,8 @@ describe('indexController', () => {
         }
       };
       function callback(req, res)  {
-        res.render('fromCallback')
-      };
+        res.render('fromCallback');
+      }
       const indexController = new IndexController(app, passport);
       // act
       indexController.isLoggedIn(req, res, callback)
@@ -81,10 +81,6 @@ describe('indexController', () => {
         }
       };
       const res = {
-        render(viewName, params) {
-          // assert
-          expect(viewName).toBe('home');
-        },
         redirect(target) {
           // assert
           expect(target).toBe('/login');
@@ -101,8 +97,8 @@ describe('indexController', () => {
       const app = {};
       const passport = {};
       const req = {
-        isAuthenticated: () => {
-          return false;
+        flash: () => {
+            return undefined
         }
       };
       const res = {
@@ -121,20 +117,15 @@ describe('indexController', () => {
       const app = {};
       const passport = {};
       const req = {
-        flash: (xxxx) => {
-          if (xxxx === 'loginMessage') {
+        flash: () => {
             return 'error'
-          }
-        },
-        isAuthenticated: () => {
-          return false;
         }
       };
       const res = {
         render(viewName, params) {
           // assert
-          expect(viewName).toBe('home');
-          expect(params).toBe({message: 'error'})
+          expect(viewName).toBe('login');
+          expect(params).toEqual({message: 'error'})
         },
         redirect(target) {
           // assert
@@ -150,20 +141,15 @@ describe('indexController', () => {
       const app = {};
       const passport = {};
       const req = {
-        flash: (xxxx) => {
-          if (xxxx === 'loginMessage') {
-            return 'error'
-          }
-        },
-        isAuthenticated: () => {
-          return false;
+        flash: () => {
+            return undefined
         }
       };
       const res = {
         render(viewName, params) {
           // assert
-          expect(viewName).toBe('home');
-          expect(params).toBe(undefined);
+          expect(viewName).toBe('login');
+          expect(params).toEqual({message: undefined});
         },
         redirect(target) {
           // assert
@@ -181,16 +167,17 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
+      const req = {
+        flash: () => {
+            return undefined
+        },
+      };
       const res = {
         render(viewName, params) {
           // assert
           expect(viewName).toBe('signup');
         }
       };
-      function callback(req, res)  {
-        res.render('fromCallback')
-      }
       const indexController = new IndexController(app, passport);
       // act
       indexController.getSignup(req, res)
@@ -200,8 +187,18 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        flash: () => {
+            return 'error'
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('signup');
+          expect(params).toEqual({message: 'error'});
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getSignup(req, res)
@@ -211,8 +208,18 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        flash: () => {
+            return undefined
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('signup');
+          expect(params).toEqual({message: undefined});
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getSignup(req, res)
@@ -224,8 +231,17 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        isAuthenticated: () => {
+          return false;
+        }
+      };
+      const res = {
+        redirect(target) {
+          // assert
+          expect(target).toBe('/login');
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getProfile(req, res)
@@ -235,8 +251,17 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        isAuthenticated: () => {
+          return true;
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('profile');
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getProfile(req, res)
@@ -248,8 +273,17 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        logout: () => {
+
+        }
+      };
+      const res = {
+        redirect(target) {
+          // assert
+          expect(target).toBe('/login');
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getLogout(req, res)
