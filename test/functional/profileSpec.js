@@ -1,4 +1,4 @@
-const config = require("../../nightwatch.conf");
+/*const config = require("../../nightwatch.conf");
 const helper = require('./testHelper')
 
 const testLogID = '[Profile test] '
@@ -7,41 +7,41 @@ module.exports = {
   [testLogID + 'show displays user informations ']: (client) => {
     client
       .url(helper.routes.profile)
-      .getValue(helper.querySelectors.lastName).assert.equal(helper.user.local.lastName)
-      .getValue(helper.querySelectors.firstName).assert.equal(helper.user.local.firstName)
-      .getValue(helper.querySelectors.nickName).assert.equal(helper.user.local.nickName)
-      .getValue(helper.querySelectors.email).assert.equal(helper.user.local.email)
-      .getValue(helper.querySelectors.password).assert.equal(helper.user.local.password)
-      .getValue(helper.querySelectors.password_confirm).assert.equal(helper.user.local.password_confirm)
-      .getValue(helper.querySelectors.birthdate).assert.equal(helper.user.local.birthdate)
-      .edn();
+      .getValue(helper.querySelectors.lastName).assert.equal(helper.user.lastName)
+      .getValue(helper.querySelectors.firstName).assert.equal(helper.user.firstName)
+      .getValue(helper.querySelectors.nickName).assert.equal(helper.user.nickName)
+      .getValue(helper.querySelectors.email).assert.equal(helper.user.email)
+      .getValue(helper.querySelectors.password).assert.equal(helper.user.password)
+      .getValue(helper.querySelectors.password_confirm).assert.equal(helper.user.password_confirm)
+      .getValue(helper.querySelectors.birthdate).assert.equal(helper.user.birthdate)
+      .end();
   },
 
   'Profile update ': function (client) {
     client
     .url('http://localhost:3000/signup')
-    .setValue('input[name="lastname"]', 'THERON')
-    .setValue('input[name="firstname"]', 'Charlize')
-    .setValue('input[name="nickname"]', 'ctheron')
-    .setValue('input[name="email"]', 'john.rambo@rocky.tld')
-    .setValue('input[name="password"]', '123456')
-    .setValue('input[name="password_confirm"]', '123456')
-    .setValue('input[name="birthdate"]', ' 07/08/1975')
-    .setValue('input[name="gender"]', 'Woman')
-    .setValue('input[name="presentation"]', 'Atomic Blonde')
-    .setValue('input[name="picture"]', 'https://fr.wikipedia.org/wiki/Charlize_Theron#/media/File:Charlize_Theron_Cannes_2015_2.jpg')
+    .setValue(helper.querySelectors.lastName, 'THERON')
+    .setValue(helper.querySelectors.firstName, 'Charlize')
+    .setValue(helper.querySelectors.nickName, 'ctheron')
+    .setValue(helper.querySelectors.email, 'john.rambo@rocky.tld')
+    .setValue(helper.querySelectors.password, '123456')
+    .setValue(helper.querySelectors.password_confirm, '123456')
+    .setValue(helper.querySelectors.birthdate, ' 07/08/1975')
+    .setValue(helper.querySelectors.gender, 'Woman')
+    .setValue(helper.querySelectors.presentation, 'Atomic Blonde')
+    .setValue(helper.querySelectors.picture, 'https://fr.wikipedia.org/wiki/Charlize_Theron#/media/File:Charlize_Theron_Cannes_2015_2.jpg')
     .click('input[type="submit"]')
     .assert.urlEquals('http://localhost:3000/profile')
-    .getValue('input[name="lastname"]').assert.equal('THERON')
-    .getValue('input[name="firstname"]').assert.equal('Charlize')
-    .getValue('input[name="nickname"]').assert.equal('ctheron')
-    .getValue('input[name="email"]').assert.equal('john.rambo@rocky.tld')
-    .getValue('input[name="password"]').assert.equal('123456')
-    .getValue('input[name="password_confirm"]').assert.equal('123456')
-    .getValue('input[name="birthdate"]').assert.equal('07/08/1975')
-    .getValue('input[name="gender"]').assert.equal('Woman')
-    .getValue('input[name="presentation"]').assert.equal('Atomic Blonde')
-    .getValue('input[name="picture"]').assert.equal('https://fr.wikipedia.org/wiki/Charlize_Theron#/media/File:Charlize_Theron_Cannes_2015_2.jpg')
+    .getValue(helper.querySelectors.lastName).assert.equal('THERON')
+    .getValue(helper.querySelectors.firstName).assert.equal('Charlize')
+    .getValue(helper.querySelectors.nickName).assert.equal('ctheron')
+    .getValue(helper.querySelectors.email).assert.equal('john.rambo@rocky.tld')
+    .getValue(helper.querySelectors.password).assert.equal('123456')
+    .getValue(helper.querySelectors.password_confirm).assert.equal('123456')
+    .getValue(helper.querySelectors.birthdate).assert.equal('07/08/1975')
+    .getValue(helper.querySelectors.gender).assert.equal('Woman')
+    .getValue(helper.querySelectors.presentation).assert.equal('Atomic Blonde')
+    .getValue(helper.querySelectors.picture).assert.equal('https://fr.wikipedia.org/wiki/Charlize_Theron#/media/File:Charlize_Theron_Cannes_2015_2.jpg')
     .end();
   },
-};
+};*/

@@ -23,6 +23,16 @@ module.exports = function(app, passport) {
 
   app.get('/profile', indexController.getProfile.bind(indexController));
 
+  app.post('/profile', indexController.postProfile.bind(indexController));
+
   app.get('/logout', indexController.getLogout.bind(indexController));
+
+  app.get('/auth/:provider', (req, res) => {
+    throw new Error(`Authentication with external provider ${req.params.provider} not yet implemented`)
+  })
+
+  app.get('/auth/:provider/callback', (req, res) => {
+    throw new Error(`Authentication with external provider ${req.params.provider} not yet implemented`)
+  })
 };
 
