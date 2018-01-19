@@ -1,18 +1,18 @@
 const config = require("../../nightwatch.conf");
-const helper = require('./test-helper')
+const helper = require('./testHelper')
 
 module.exports = {
   'Profile page show displays user informations ': function (client) {
     client
-      .url('http://localhost:3000/login')
-      .getValue('input[name="lastname"]').assert.equal('RAMBO')
-      .getValue('input[name="firstname"]').assert.equal('John')
-      .getValue('input[name="nickname"]').assert.equal('jrambo')
-      .getValue('input[name="email"]').assert.equal('john.rambo@rocky.tld')
-      .getValue('input[name="password"]').assert.equal('p@ssword')
-      .getValue('input[name="password_confirm"]').assert.equal('p@ssword')
-      .getValue('input[name="birthdate"]').assert.equal('06/07/1946')
-      .end();
+      .url(helper.routes.profile)
+      .getValue(helper.querySelectors.lastName).assert.equal(helper.user.lastName)
+      .getValue(helper.querySelectors.firstName).assert.equal(helper.user.firstName)
+      .getValue(helper.querySelectors.nickName).assert.equal(helper.user.nickName)
+      .getValue(helper.querySelectors.email).assert.equal(helper.user.email)
+      .getValue(helper.querySelectors.password).assert.equal(helper.user.password)
+      .getValue(helper.querySelectors.password_confirm).assert.equal(helper.user.password_confirm)
+      .getValue(helper.querySelectors.birthdate).assert.equal(helper.user.birthdate)
+      .edn();
   },
 
   'Profile update ': function (client) {

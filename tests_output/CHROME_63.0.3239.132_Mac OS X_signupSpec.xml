@@ -5,39 +5,39 @@
 
   <testsuite name="signupSpec"
     errors="0" failures="0" hostname="" id="" package="signupSpec" skipped="0"
-    tests="7" time="18.10" timestamp="Fri, 19 Jan 2018 11:12:23 GMT">
+    tests="7" time="9.824" timestamp="Fri, 19 Jan 2018 11:17:08 GMT">
   
-    <testcase name="Signup test if lastname is empty" classname="signupSpec" time="7.434" assertions="1">
+    <testcase name="Signup test if lastname is empty" classname="signupSpec" time="1.524" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Signup test if firstname is empty" classname="signupSpec" time="2.840" assertions="1">
+    <testcase name="Signup test if firstname is empty" classname="signupSpec" time="1.466" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Signup test if nickname is empty" classname="signupSpec" time="2.063" assertions="1">
+    <testcase name="Signup test if nickname is empty" classname="signupSpec" time="1.379" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Signup test if email is empty" classname="signupSpec" time="1.452" assertions="1">
+    <testcase name="Signup test if email is empty" classname="signupSpec" time="1.385" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Signup test if password is empty" classname="signupSpec" time="1.426" assertions="1">
+    <testcase name="Signup test if password is empty" classname="signupSpec" time="1.372" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Signup test if confirm password is empty" classname="signupSpec" time="1.425" assertions="1">
+    <testcase name="Signup test if confirm password is empty" classname="signupSpec" time="1.321" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Signup test if confirm birthdate is empty" classname="signupSpec" time="1.457" assertions="1">
+    <testcase name="Signup test if confirm birthdate is empty" classname="signupSpec" time="1.377" assertions="1">
 
     
     </testcase>

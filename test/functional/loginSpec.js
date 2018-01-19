@@ -1,4 +1,4 @@
-const helper = require('./test-helper')
+const helper = require('./testHelper')
 
 module.exports = {
   'Login test if username and password are incorrect': function (client) {

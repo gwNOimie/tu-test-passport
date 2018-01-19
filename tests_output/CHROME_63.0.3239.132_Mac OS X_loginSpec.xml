@@ -5,34 +5,34 @@
 
   <testsuite name="loginSpec"
     errors="0" failures="0" hostname="" id="" package="loginSpec" skipped="0"
-    tests="6" time="14.14" timestamp="Fri, 19 Jan 2018 11:12:09 GMT">
+    tests="6" time="8.478" timestamp="Fri, 19 Jan 2018 11:16:59 GMT">
   
-    <testcase name="Login test if username and password are incorrect" classname="loginSpec" time="2.420" assertions="1">
+    <testcase name="Login test if username and password are incorrect" classname="loginSpec" time="2.480" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if username is incorrect" classname="loginSpec" time="1.174" assertions="1">
+    <testcase name="Login test if username is incorrect" classname="loginSpec" time="1.113" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if password is incorrect" classname="loginSpec" time="1.212" assertions="1">
+    <testcase name="Login test if password is incorrect" classname="loginSpec" time="1.114" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if username and password are empty" classname="loginSpec" time="1.508" assertions="1">
+    <testcase name="Login test if username and password are empty" classname="loginSpec" time="1.073" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if username is empty" classname="loginSpec" time="1.813" assertions="1">
+    <testcase name="Login test if username is empty" classname="loginSpec" time="1.193" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Login test if password is empty" classname="loginSpec" time="6.017" assertions="1">
+    <testcase name="Login test if password is empty" classname="loginSpec" time="1.505" assertions="1">
 
     
     </testcase>

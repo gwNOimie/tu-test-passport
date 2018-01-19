@@ -5,9 +5,9 @@
 
   <testsuite name="profileSpec"
     errors="1" failures="1" hostname="" id="" package="profileSpec" skipped="1"
-    tests="2" time="0.01200" timestamp="Fri, 19 Jan 2018 11:12:23 GMT">
+    tests="2" time="0.005000" timestamp="Fri, 19 Jan 2018 11:17:07 GMT">
   
-    <testcase name="Profile page show displays user informations " classname="profileSpec" time="0.01200" assertions="1">  <failure message="Failed [equal]: (&#39;RAMBO&#39; == undefined)">    at Object.Profile page show displays user informations  (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/test/functional/profileSpec.js:8:50)</failure>
+    <testcase name="Profile page show displays user informations " classname="profileSpec" time="0.005000" assertions="1">  <failure message="Failed [equal]: (&#39;RAMBO&#39; == undefined)">    at Object.Profile page show displays user informations  (/Users/imakumo_mac178/Desktop/IMIE/tu-test-passport/test/functional/profileSpec.js:8:56)</failure>
 
     
     </testcase>

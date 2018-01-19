@@ -1,5 +1,5 @@
 const config = require("../../nightwatch.conf");
-const helper = require('./test-helper')
+const helper = require('./testHelper')
 
 
 module.exports = {
