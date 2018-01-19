@@ -77,13 +77,13 @@ describe('indexController', () => {
       const passport = {};
       const req = {
         isAuthenticated: () => {
-          return false;
+          return true;
         }
       };
       const res = {
-        redirect(target) {
+        render(viewName, params) {
           // assert
-          expect(target).toBe('/login');
+          expect(viewName).toBe('home');
         }
       };
       const indexController = new IndexController(app, passport);
@@ -110,7 +110,6 @@ describe('indexController', () => {
       const indexController = new IndexController(app, passport);
       // act
       indexController.getLogin(req, res)
-      // assert
     });
     it('Should display error message if there is one', () => {
       // arrange
@@ -135,7 +134,6 @@ describe('indexController', () => {
       const indexController = new IndexController(app, passport);
       // act
       indexController.getLogin(req, res)
-      // assert
     });
     it('Shouldn\'t display any message if there aren\'t', () => {
       const app = {};
@@ -159,7 +157,6 @@ describe('indexController', () => {
       const indexController = new IndexController(app, passport);
       // act
       indexController.getLogin(req, res)
-      // assert
     })
   });
   describe('#getSignup', () => {
@@ -181,7 +178,6 @@ describe('indexController', () => {
       const indexController = new IndexController(app, passport);
       // act
       indexController.getSignup(req, res)
-      // assert
     });
     it('Should display error message if there is one', () => {
       // arrange
@@ -202,7 +198,6 @@ describe('indexController', () => {
       const indexController = new IndexController(app, passport);
       // act
       indexController.getSignup(req, res)
-      // assert
     });
     it('Shouldn\'t display any message if there aren\'t', () => {
       // arrange
@@ -223,7 +218,6 @@ describe('indexController', () => {
       const indexController = new IndexController(app, passport);
       // act
       indexController.getSignup(req, res)
-      // assert
     });
   });
   describe('#getProfile', () => {
@@ -245,7 +239,6 @@ describe('indexController', () => {
       const indexController = new IndexController(app, passport);
       // act
       indexController.getProfile(req, res)
-      // assert
     });
     it('Should render profile page if authenticated', () => {
       // arrange
@@ -265,9 +258,139 @@ describe('indexController', () => {
       const indexController = new IndexController(app, passport);
       // act
       indexController.getProfile(req, res)
-      // assert
     });
   });
+  describe('#postProfile', () => {
+    it('Should redirect to profile after editing user info', () => {
+      // arrange
+      const app = {};
+      const passport = {};
+      const req = {
+        body: {
+          firstname: 'plop',
+          lastname: 'plop'
+        },
+        isAuthenticated: () => {
+          return true;
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('profile');
+        },
+        redirect(target) {
+          // assert
+          expect(target).toBe('/profile');
+        }
+      };
+      const User = {
+        user: {
+          firstname: 'pif',
+          lastname: 'paf',
+          validate: () => null
+        },
+        update: (id, data, callback) => {
+          this.user.firstname = data.firstname;
+          this.user.lastname = data.lastname;
+          callback(null, data);
+        },
+        findById: () => this.user
+      };
+      const indexController = new IndexController(app, passport, User);
+      // act
+      indexController.postProfile(req, res)
+    });
+    it('Should send received data to user model', () => {
+      // arrange
+      const app = {};
+      const passport = {};
+      const req = {
+        body: {
+          firstname: 'plop',
+          lastname: 'plop'
+        },
+        isAuthenticated: () => {
+          return true;
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('profile');
+          expect(params.user).toEqual({
+            firstname: 'plop',
+            lastname: 'plop',
+            validate: () => null
+        })
+        },
+        redirect(target) {
+          // assert
+          expect(target).toBe('/profile');
+        }
+      };
+      const User = {
+        user: {
+          firstname: 'pif',
+          lastname: 'paf',
+          validate: () => null
+        },
+        update: (id, data, callback) => {
+          this.user.firstname = data.firstname;
+          this.user.lastname = data.lastname;
+          callback(null, data);
+        },
+        findById: () => this.user
+      };
+      const indexController = new IndexController(app, passport, User);
+      // act
+      indexController.postProfile(req, res);
+    });
+    it('Should display error message if something occurred while saving new data', () => {
+      // arrange
+      const app = {};
+      const passport = {};
+      const req = {
+        body: {
+          firstname: 'plop',
+          lastname: 'plop'
+        },
+        isAuthenticated: () => {
+          return true;
+        },
+        flash: () => {
+          return 'error'
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('profile');
+          expect(params.message).toBe('error')
+        },
+        redirect(target) {
+          // assert
+          expect(target).toBe('/profile');
+        }
+      };
+      const User = {
+        user: {
+          firstname: 'pif',
+          lastname: 'paf',
+          validate: () => null
+        },
+        update: (id, data, callback) => {
+          this.user.firstname = data.firstname;
+          this.user.lastname = data.lastname;
+          callback(null, data);
+        },
+        findById: () => this.user
+      };
+      const indexController = new IndexController(app, passport, User);
+      // act
+      indexController.postProfile(req, res);
+    });
+  })
   describe('#getLogout', () => {
     it('Should redirect to login after logged out', () => {
       // arrange
