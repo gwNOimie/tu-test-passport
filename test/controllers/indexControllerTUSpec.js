@@ -28,7 +28,7 @@ describe('indexController', () => {
       const app = {};
       const passport = {};
       const req = {
-        isAuthenticated() {
+        isAuthenticated: () => {
           return true;
         }
       };
@@ -56,23 +56,43 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        isAuthenticated: () => {
+          return false;
+        }
+      };
+      const res = {
+        redirect(target) {
+          // assert
+          expect(target).toBe('/login');
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getHome(req, res)
-      // assert
     });
     it('Should render home page if authenticated', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        isAuthenticated: () => {
+          return false;
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('home');
+        },
+        redirect(target) {
+          // assert
+          expect(target).toBe('/login');
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getHome(req, res)
-      // assert
     });
   });
   describe('#getLogin', () => {
@@ -80,8 +100,17 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        isAuthenticated: () => {
+          return false;
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('login');
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getLogin(req, res)
@@ -91,19 +120,56 @@ describe('indexController', () => {
       // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        flash: (xxxx) => {
+          if (xxxx === 'loginMessage') {
+            return 'error'
+          }
+        },
+        isAuthenticated: () => {
+          return false;
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('home');
+          expect(params).toBe({message: 'error'})
+        },
+        redirect(target) {
+          // assert
+          expect(target).toBe('/login');
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getLogin(req, res)
       // assert
     });
     it('Shouldn\'t display any message if there aren\'t', () => {
-      // arrange
       const app = {};
       const passport = {};
-      const req = {};
-      const res = {};
+      const req = {
+        flash: (xxxx) => {
+          if (xxxx === 'loginMessage') {
+            return 'error'
+          }
+        },
+        isAuthenticated: () => {
+          return false;
+        }
+      };
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('home');
+          expect(params).toBe(undefined);
+        },
+        redirect(target) {
+          // assert
+          expect(target).toBe('/login');
+        }
+      };
       const indexController = new IndexController(app, passport);
       // act
       indexController.getLogin(req, res)
@@ -116,7 +182,15 @@ describe('indexController', () => {
       const app = {};
       const passport = {};
       const req = {};
-      const res = {};
+      const res = {
+        render(viewName, params) {
+          // assert
+          expect(viewName).toBe('signup');
+        }
+      };
+      function callback(req, res)  {
+        res.render('fromCallback')
+      }
       const indexController = new IndexController(app, passport);
       // act
       indexController.getSignup(req, res)
