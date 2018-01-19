@@ -8,27 +8,26 @@
 
 {% block content %}
   <h2>My Profile</h2>
-
 <div class="flex-center">
   <form method="post" action="/profile">
     <div>
       <label for="lastname">Lastname:</label><br>
-      <input type="text" name="lastname" placeholder="RAMBO" required>
+      <input type="text" name="lastname" placeholder="RAMBO" {% if user %}value="{{ user.local.lastname }}" {% endif %}required>
     </div>
     
     <div>
       <label for="firstname">Firstname:</label><br>
-      <input type="text" name="firstname" placeholder="John" required>
+      <input type="text" name="firstname" placeholder="John" {% if user %}value="{{ user.local.firstname }}" {% endif %}required>
     </div>
 
     <div>
       <label for="nickname">Nickname:</label><br>
-      <input type="text" name="nickname" placeholder="Vegeta44" required>
+      <input type="text" name="nickname" placeholder="Vegeta44" {% if user %}value="{{ user.local.nickname }}" {% endif %}required>
     </div>
 
     <div>
       <label for="email">Email:</label><br>
-      <input type="mail" name="email" placeholder="jean.dupont@tld.fr" disabled>
+      <input type="mail" name="email" placeholder="jean.dupont@tld.fr" {% if user %}value="{{ user.local.email }}" {% endif %}disabled>
     </div>
 
     <div>
@@ -43,26 +42,26 @@
 
     <div>
       <label for="birthdate">Birthdate:</label><br>
-      <input type="date" name="birthdate" required>
+      <input type="date" name="birthdate" {% if user %}value="{{ user.local.birthdate | date('Y-m-d') }}" {% endif %}required>
     </div>
 
     <div>
       <label for="gender">Gender:</label><br>
       <select name="gender" required>
-        <option>Man</option>
-        <option>Woman</option>
-        <option>Other</option>
+        <option {% if user %}{% if user.local.gender == "Man" %}selected{% endif %}{% endif %}>Man</option>
+        <option {% if user %}{% if user.local.gender == "Woman" %}selected{% endif %}{% endif %}>Woman</option>
+        <option {% if user %}{% if user.local.gender == "Other" %}selected{% endif %}{% endif %}>Other</option>
       </select>
     </div>
 
     <div>
       <label for="presentation">Presentation:</label><br>
-      <textarea name="presentation"></textarea>
+      <textarea name="presentation">{% if user %}{{ user.local.presentation }}{% endif %}</textarea>
     </div>
 
     <div>
       <label for="picture">Picture:</label><br>
-      <textarea name="picture"></textarea>
+      <textarea name="picture">{% if user %}{{ user.local.picture }}{% endif %}</textarea>
     </div>
 
     <div>
