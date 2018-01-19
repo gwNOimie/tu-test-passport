@@ -2,8 +2,10 @@
 
 const helper = require('./testHelper')
 
+const testLogID = '[Login test] '
+
 module.exports = {
-  'Login test if username and password are incorrect': function (client) {
+  [testLogID + 'if username and password are incorrect']: (client) => {
     client
       .url(helper.routes.login)
       .setValue(helper.querySelectors.email, 'test@example.com')
@@ -13,7 +15,7 @@ module.exports = {
       .end();
   },
 
-  'Login test if username is incorrect': function (client) {
+  [testLogID + 'if username is incorrect']: (client) => {
     client
       .url(helper.routes.login)
       .setValue(helper.querySelectors.email, 'test@wrong.com')
@@ -23,7 +25,7 @@ module.exports = {
       .end();
   },
 
-  'Login test if password is incorrect': function (client) {
+  [testLogID + 'if password is incorrect']: (client) => {
     client
       .url(helper.routes.login)
       .setValue(helper.querySelectors.email, 'test@example.com')
@@ -33,7 +35,7 @@ module.exports = {
       .end();
   },
 
-  'Login test if username and password are empty': function (client) {
+  [testLogID + 'if username and password are empty']: (client) => {
     client
       .url(helper.routes.login)
       .setValue(helper.querySelectors.email, '')
@@ -43,7 +45,7 @@ module.exports = {
       .end();
   },
 
-  'Login test if username is empty': function (client) {
+  [testLogID + 'if username is empty']: (client) => {
     client
       .url(helper.routes.login)
       .setValue(helper.querySelectors.email, '')
@@ -53,7 +55,7 @@ module.exports = {
       .end();
   },
 
-  'Login test if password is empty': function (client) {
+  [testLogID + 'if password is empty']: (client) => {
     client
       .url(helper.routes.login)
       .setValue(helper.querySelectors.email, 'test@example.com')
@@ -63,7 +65,7 @@ module.exports = {
       .end();
   },
 
-  /*'Login test username and password are correct': function (client) {
+  /*[testLogID + 'username and password are correct']: (client) => {
     client
       .url(helper.routes.login)
       .setValue(helper.querySelectors.email, 'test@example.com')

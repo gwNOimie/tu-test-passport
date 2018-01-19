@@ -1,8 +1,10 @@
 /*const config = require("../../nightwatch.conf");
 const helper = require('./testHelper')
 
+const testLogID = '[Profile test] '
+
 module.exports = {
-  'Profile page show displays user informations ': function (client) {
+  [testLogID + 'show displays user informations ']: (client) => {
     client
       .url(helper.routes.profile)
       .getValue(helper.querySelectors.lastName).assert.equal(helper.user.lastName)

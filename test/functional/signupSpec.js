@@ -1,9 +1,10 @@
-const config = require("../../nightwatch.conf");
+const config = require('../../nightwatch.conf')
 const helper = require('./testHelper')
 
+const testLogID = '[Signup test] '
 
 module.exports = {
-  'Signup test if lastname is empty': function (client) {
+  ['' + testLogID + 'if lastname is empty']: (client) => {
     client
       .url(helper.routes.signup)
       .setValue(helper.querySelectors.lastName, '')
@@ -18,10 +19,10 @@ module.exports = {
       .setValue(helper.querySelectors.picture, helper.user.picture)
       .click(helper.querySelectors.submitButton)
       .assert.urlEquals(helper.routes.signup)
-      .end();
+      .end()
   },
 
-  'Signup test if firstname is empty': function (client) {
+  ['' + testLogID + 'if firstname is empty']: (client) => {
     client
     .url(helper.routes.signup)
     .setValue(helper.querySelectors.lastName, helper.user.lastName)
@@ -39,7 +40,7 @@ module.exports = {
     .end();
   },
 
-  'Signup test if nickname is empty': function (client) {
+  ['' + testLogID + 'if nickname is empty']: (client) => {
     client
     .url(helper.routes.signup)
     .setValue(helper.querySelectors.lastName, helper.user.lastName)
@@ -57,7 +58,7 @@ module.exports = {
     .end();
   },
 
-  'Signup test if email is empty': function (client) {
+  ['' + testLogID + 'if email is empty']: (client) => {
     client
     .url(helper.routes.signup)
     .setValue(helper.querySelectors.lastName, helper.user.lastName)
@@ -75,7 +76,7 @@ module.exports = {
     .end();
   },
 
-  'Signup test if password is empty': function (client) {
+  ['' + testLogID + 'if password is empty']: (client) => {
     client
     .url(helper.routes.signup)
     .setValue(helper.querySelectors.lastName, helper.user.lastName)
@@ -93,7 +94,7 @@ module.exports = {
     .end();
   },
 
-  'Signup test if confirm password is empty': function (client) {
+  ['' + testLogID + 'if confirm password is empty']: (client) => {
     client
     .url(helper.routes.signup)
     .setValue(helper.querySelectors.lastName, helper.user.lastName)
@@ -128,4 +129,19 @@ module.exports = {
     .assert.urlEquals(helper.routes.signup)
     .end();
   },
-};
+
+  ['' + testLogID + 'email with wrong format']: (client) => {
+    client
+      .url(helper.routes.signup)
+      .setValue(helper.querySelectors.lastName, helper.user.lastName)
+      .setValue(helper.querySelectors.firstName, helper.user.firstName)
+      .setValue(helper.querySelectors.nickName, helper.user.nickName)
+      .setValue(helper.querySelectors.email, 'SiTuYCroisTresFortEtQueTonCoeurEstPurIlPeutArriverDesChosesMerveilleuses')
+      .setValue(helper.querySelectors.password, helper.user.password)
+      .setValue(helper.querySelectors.password_confirm, helper.user.password)
+      .setValue(helper.querySelectors.birthdate, helper.user.birthdate)
+      .click(helper.querySelectors.submitButton)
+      .assert.urlEquals(helper.routes.signup)
+      .end()
+  }
+}
