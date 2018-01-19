@@ -7,8 +7,9 @@ class IndexController {
   isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       next(req, res);
+    } else {
+      res.redirect('/login');
     }
-    res.redirect('/login');
   }
 
   getHome(req, res) {

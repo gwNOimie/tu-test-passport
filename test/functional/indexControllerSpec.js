@@ -1,4 +1,4 @@
-var config = require("../nightwatch.conf");
+var config = require("../../nightwatch.conf");
 
 module.exports = {
   'Login test if username and password are incorrect': function (client) {

@@ -29,7 +29,7 @@
   };
   
   module.exports = {
-    src_folders: ['test'],
+    src_folders: ['test/functional'],
     selenium: SELENIUM_CONFIGURATION,
     test_settings: ENVIRONMENTS
   };
