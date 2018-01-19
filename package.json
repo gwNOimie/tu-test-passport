@@ -30,7 +30,7 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
-    "twig": "^1.10.5",
+    "twig": "^1.10.5"
   },
   "devDependencies": {
     "chromedriver": "^2.34.1",
