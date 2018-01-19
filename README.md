@@ -1,28 +1,82 @@
-# Prerequisites
+# Unit tests project
 
-Make sur Node.js and Git are installed on your computer; if you're using Windows, make sur you have environment variables to use them.
+## Description
 
-# Get the project
+Project goal is to use test tools on an authentication service which will be implemented in a student meeting app.
 
-In your terminal, move to your chosen directory and clone the repository: `git clone https://github.com/gwNOimie/tu-test-passport`
+## Installation
 
-# Install the project
+### Prerequisites
 
-Move into your project and install packages: `npm install`
+Make sure Node.js and mongodb are installed on your computer.
+If you're using Windows, make sure you have paths correctly defined in order to use these two tools.
+Refer to these tools documentation if you need help in order to make them working.
 
-# Launch application
+### Get the project
 
-Launch: `npm start` or `nodemon app/server.js`
-Open a browser (like Google Chrome or Firefox) and go to `http://localhost:3000`
+In your terminal, move to your chosen directory and clone the repository (working git installation needed): 
+```
+git clone git@github.com:gwNOimie/tu-test-passport.git
+```
+or download sources from repository [https://github.com/gwNOimie/tu-test-passport]
+
+### Install dependencies
+
+Move into the project folder and install packages: 
+```
+npm install
+```
+
+### Set mongoDB configuration
+
+Edit the file `config/mongodb.js` to correspond to your mongoDB configuration.
+
+## Usage
+
+### Launch application
+
+Launch: 
+```
+npm start
+``` 
+
+Open a browser (like Firefox or Google Chrome ) and navigate to [http://localhost:3000] to view app.
 
 Welcome to the application !
 
-# Run tests
+## Testing
 
-To run tests, open a terminal and launch the command `npm run test`
+### Run unit tests
 
-// WARNING \\
-If you're using Windows, the previous command will throw an error `'.' n’est pas reconnu en tant que commande interne`
+To run unit tests, open a terminal and launch the command
+```
+npm run test                // linux & mac
 
-Launch the command `node <path_to_the_module_mocha>` instead.
-ex: `node C:\Users\Gaëtan\Documents\IMIE\node_js\tu-test-passport\node_modules\mocha\bin\mocha`
+                            // or
+
+nmp run test-win            // windows
+```
+
+### Generate coverage report from unit tests
+
+To generate coverage report from unit tests, open a terminal and launch the command
+```
+npm run test:coverage       // linux & mac
+
+                            // or
+
+nmp run test-win:coverage   // windows
+```
+Generated coverage will be displayed launching `coverage/lcov-report/index.html` from your project path threw a navigator.
+
+### Run functional tests
+
+To run functional tests with NightWatch you need Google Chrome installed on your device.
+Then, you can run 
+```
+npm run nw                // linux & mac
+
+                            // or
+
+nmp run nw-win            // windows
+```
