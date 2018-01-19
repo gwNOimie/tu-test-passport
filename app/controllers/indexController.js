@@ -10,8 +10,6 @@ class IndexController {
     }
     else {
       next(req, res);
-    } else {
-      res.redirect('/login');
     }
   }
 
